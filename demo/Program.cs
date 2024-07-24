@@ -1,4 +1,6 @@
-﻿namespace demo
+﻿using System.Globalization;
+
+namespace demo
 {
     internal class Program
     {
@@ -79,36 +81,34 @@
             #endregion
 
             #region EX02
-            int x = 10;
-            int? y = x; // Valid No Proplem But this is casting
-                        // From Int To Nullable Int Implicit Casting
-                        // No Casting Operator Needed (int)
+            //int x = 10;
+            //int? y = x; // Valid No Proplem But this is casting
+            //            // From Int To Nullable Int Implicit Casting
+            //            // No Casting Operator Needed (int)
 
-            int? Num1 = null;
-            int Num2 = (int)Num1; // Explicit Casting From Nullable To int 
-                                  // Need to use Casting Operator
-                                  // To Disable The Warning You can make it disabled from the progex xml
+            //int? Num1 = null;
+            //int Num2 = (int)Num1; // Explicit Casting From Nullable To int 
+            //                      // Need to use Casting Operator
+            //                      // To Disable The Warning You can make it disabled from the progex xml
 
-            // -- To Make A Safe Casting and insure yourself from any exceptions 
-            // Check first if the nullable variable is null or not 
-            // in the first way we made casting but in the second and the third we take the value and don't make any casting
+            //// -- To Make A Safe Casting and insure yourself from any exceptions 
+            //// Check first if the nullable variable is null or not 
+            //// in the first way we made casting but in the second and the third we take the value and don't make any casting
 
-            // 1- First Way
-            if (Num1 != null)
-                Num2 = (int)Num1;
-            else Num2 = 0;
+            //// 1- First Way
+            //if (Num1 != null)
+            //    Num2 = (int)Num1;
+            //else Num2 = 0;
 
-            // 2- Second Way
-            if (Num1.HasValue)
-                Num2 = Num1.Value;
-            else Num2 = 0;
+            //// 2- Second Way
+            //if (Num1.HasValue)
+            //    Num2 = Num1.Value;
+            //else Num2 = 0;
 
-            // 3- Third Way
-            Num2 = Num1.HasValue ? Num1.Value : 0;
+            //// 3- Third Way
+            //Num2 = Num1.HasValue ? Num1.Value : 0;
 
             #endregion
-
-
 
             #endregion
 
@@ -140,7 +140,52 @@
 
             #endregion
 
-            #region Null Propagation Operator
+            #region Null Propagation Operator [ ? ]
+
+            ////double x = default;
+            ////Console.WriteLine(x);
+
+            //int[] Numbers = default; // Null
+            //int[]? NumbersNullable = default; // Nullable
+
+            //// 1- Error But Can not check without if validation
+            ////foreach (var item in Numbers)
+            ////{
+            ////    Console.WriteLine(item);
+            ////}
+
+            //// 2- With The For loop we can check with null propgation operator
+            //// Before he start propegate inside the array he will check 
+            //// if it not equal null it will return true and start progate and get the length
+            //// if false the will not work
+
+            //// First Way Check for the Numbers Befor Check the length
+            //for(int i = 0; (Numbers!= null) && i < Numbers.Length; i++)
+            //{
+            //    Console.WriteLine(Numbers[i]);
+            //}
+            //// Second Way with Null propagation operator
+            //for (int i = 0;i < Numbers?.Length; i++)
+            //{
+            //    Console.WriteLine(Numbers[i]);
+            //}
+
+            // when to use the null progegation operator ? stop the propagation
+            // Null coulescing operator ?? replacement for the null
+            //int[] Numbers = default;
+
+            //int length = Numbers?.Length ?? 0;
+
+            //Console.WriteLine(length);
+
+
+            //Employee employee01 = new Employee();
+            //// employee01 is state is // id = 0 , FirstName = null , LastName = null , Department = null 
+
+            //employee01.Department = new Department();
+
+            //Console.WriteLine(employee01?.Department?.Name ?? "20");
+
 
             #endregion
 
