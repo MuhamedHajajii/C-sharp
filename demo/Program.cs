@@ -3,6 +3,13 @@ using System.Xml.Linq;
 
 namespace demo
 {
+
+    class Data {
+        public int Sum { get; set; }
+        public int Mul { get; set; }
+    }
+
+
     internal class Program
     {
         static void Main()
@@ -346,12 +353,12 @@ namespace demo
             //// passing with value with the new object();
 
             // Passing With the ref with the new object
-            int[] Numbers = { 1, 2, 3 };
+            //int[] Numbers = { 1, 2, 3 };
 
-            Console.WriteLine(Numbers[0]);
-            int result = GetSum(ref Numbers);
-            Console.WriteLine(result);
-            Console.WriteLine(Numbers[0]);
+            //Console.WriteLine(Numbers[0]);
+            //int result = GetSum(ref Numbers);
+            //Console.WriteLine(result);
+            //Console.WriteLine(Numbers[0]);
 
             // This time we make the originla array allocate a new object too not only the parameter
             // because it passing parameter by reference 
@@ -361,22 +368,55 @@ namespace demo
             #endregion
 
             #endregion
+            #region passing by out and params
+
+            // when i use the output parameter i must use the whole output parameters inside my function
+            // no re initialize for them in the fucntion block because we already declare them in the paramamters
+            // i have to declare the output parameters to recive the data or the output data
+            //int a = 1;  int b = 2;
+
+            //int result01;
+            //int result02;
+
+            //SumMul(a, b, out result01, out result02);
+            //Console.WriteLine(result01);
+            //Console.WriteLine(result02);
 
 
+            // The Same As the Passing parameters by ref not the value only 
+
+            #endregion
+
+            #region Params
+
+            #endregion
 
             #endregion
 
         }
 
-        public static int GetSum(ref int[] Arr)
-        {
-            int Total = 0;
-                Arr = new int[] {5,2};
-            for (int i = 0; i < Arr.Length; i++)
-                Total += Arr[i];
+        #region Functions
 
-            return Total;
-        }
+        //public static void SumMul(int x,int y ,out int Sum,out int Mul)
+        //{
+        //    Sum = x + y;
+        //    Mul = x * y;
+        //    //Data D = new Data();
+        //    //D.Sum = Sum;
+        //    //D.Mul = Mul;
+        //    //return D;
+        //    //return new Data { Sum = Sum, Mul = Mul };
+        //}
+
+        //public static int GetSum(ref int[] Arr)
+        //{
+        //    int Total = 0;
+        //        Arr = new int[] {5,2};
+        //    for (int i = 0; i < Arr.Length; i++)
+        //        Total += Arr[i];
+
+        //    return Total;
+        //}
 
         // First we start with the signature of the function
         // Static because we will call it through the class not from object from the class
@@ -398,5 +438,6 @@ namespace demo
         //    x = y;
         //    y = Temp;
         //}
+        #endregion
     }
 }
