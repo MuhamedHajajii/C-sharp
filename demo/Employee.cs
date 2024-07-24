@@ -17,7 +17,9 @@ namespace demo
         // there are a non-nullable variable it must contain a nun-null value
         public Employee() {
             //FirstName = "";
+            
         }
+        
     }
 
     class Department

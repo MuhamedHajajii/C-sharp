@@ -1,4 +1,5 @@
 ﻿using System.Globalization;
+using System.Xml.Linq;
 
 namespace demo
 {
@@ -190,13 +191,212 @@ namespace demo
             #endregion
 
             #region Functions
+            #region Ex01
+            // Functions 
+            // 1- Hold a block of code which i can reuse it more than one time 
+            // 2- reuse it any time or depend on specific behavior or action  
+            // 3- in sql functions must return value and in the programming language functions can be void.
+
+            // Functions 2 Steps
+            // 1- Prototype return type , name , parameteres == function signetrue , Body
+            // 2- calling name and arguments
+
+            // inside any name space i can type 4 things (value type and reference type)
+            // Class Struct interface enum 
+            // no stand alone function in oop and c sharp is a pure oop language 
+            // Name Space is like the folder and includes every thing about the project ( Class Struct Interface Enum )
+
+            // To use any function in the class it must be calling in the main function but this happen only in the console application
+            // in the desktop application there are no necessery for this step because it happen by the function call 
+
+            // 1- Class Member Function -- Static Functino -- Calling through her class with out new keyword i can access it because it a part from the class
+            // 2- object member Function -- non-Static Function -- object from the class to can access it like new object
+
+            // Print First Ex01
+            // I Don't have to use the class name because i use it from the same class if
+            // i will call it from another class i should type the class name.
+
+            //Program.PrintShape(5,"(*_*)");
+            // Calling the function and passing the parameters with order
+            // position parameter
+            //PrintShape(5,"(*_*)");
+            //// Passing parameters by name
+            //PrintShape(Shape : "(*_*)",Count : 5);
+            //// Calling with function with defult value
+            //PrintShape();
+            //// Calling with function with second vlaue only
+            //PrintShape(Shape:":)");
+            //// Note That The Parametes which will have defult value it must be in the end of the parameters
+
+            // The backslash \ is a reserved word in the programming language to escap operator is use to insert special charachter in the string 
+            // \n new line \t tap \' single quote \" double quote \t horizantel table 
+            // @"" Escape all the escape operators 
+            //Console.WriteLine(@"Hello""Hello"" 'To' \Route \Welcome \Haji");
+            #endregion
+
+
+
+            #region Reference Type Parameters
+            #region passing The reference type by the value (address)
+            // String Builder , String, object , Array, delegate
+            //int[] Numbers = { 1, 2, 3, 4, 5, 6, 7, 8, };
+
+            //Console.WriteLine(Numbers[0]);
+            //int result = GetSum(Numbers); // passing the parameters by the value even if it reference data type 
+            //Console.WriteLine(result);    // You Pass the inctance of the value by the address
+            //                              // Both Now include the same Address And Refer To The Same Place
+            //Console.WriteLine(Numbers[0]);
+            // So If I passing by value i pass the address like the value type but with different behavior
+
+            // Fire Main Function And Create The Stack Frame Of the main 
+            // Allcate The int Numbers 4bytes 
+            // The object in the heap with requier and defult and the main behavior
+            // call for the getsum
+            // passing the parameters by value the both of them refer to the same address 
+            // so any change in any one of them will effect the other 
+            // First decalre the parametes the allocate the local variables
+
+            // if the array equal null  
+            #endregion
+
+
+
+            #endregion
 
             #endregion
 
             #region Passing Parameters
+            #region Value Type Parameters
+            // Function Parameters
+            // Passing by value , default , reference , out , params
+
+            //1- passing parameters value type parameters
+            // byte,small,int,long,float,double,decimal,charachter,boolean,datetime
+            // every datatype store in the stack
+
+            //int a = 10; int b =20;
+
+            // In This Case We Pass a Value type data with value only
+            // so nothing change for the defult variables
+            // the only change and the operation happens for the parameters of the function
+            // an instance from the value of the variables
+
+            //Console.WriteLine($"A= {a}");
+            //Console.WriteLine($"B= {b}");
+            //Swap(a, b);
+            //Console.WriteLine("===================================");
+            //Console.WriteLine($"A= {a}");
+            //Console.WriteLine($"B= {b}");
+
+            // first the stack frame of the main function
+            // declare the a and b 
+            // the stack of the swap
+            // Stack frame of the write line after it end will remove from the stack
+            // declare all the local variables of the swap temp,parameters of the functions
+            // Allocate The Parameters and the Temp with the defult value of the int zero
+            // after end the function nothing will change in the original variables
+
+            //int a = 10; int b = 20;
+            //Console.WriteLine($"A= {a}");
+            //Console.WriteLine($"B= {b}");
+            //// 2- Passing by reference
+            //Swap(ref a,ref b);
+            //Console.WriteLine("===================================");
+            //Console.WriteLine($"A= {a}");
+            //Console.WriteLine($"B= {b}");
+
+            // First Call The Main Function And Make the StackFrame Of ot so it will allocate the A,B
+            // StackFrame Of the Swap But This Time will not Allocate space of the parameters 
+            // because it passing with the reff 
+            // No need to allocate the data again 
+            // Will Change the name of the parameters only 
+            // swap stack frame will only hold the Temp
+            // So its now change the value in the base address or the original variabales because we passing the parameters by the reference 
+            // passign ref with the value type
+            // Passing with the ref is the same as Input output output parameters
+
+            #endregion
+            #region Passing by the ref of the reference
+
+            #region Ex01
+            //int[] Numbers2 = { 1,2,3,4,5,6,7,8,};
+
+            //Console.WriteLine(Numbers2[0]);
+            //Console.WriteLine(GetSum(ref Numbers2));
+            //Console.WriteLine(Numbers2[0]);
+
+            // The Different only in the heap no in the result 
+            // The Stack Fire and call the and create the stack frame
+            // paramater of the getsum is by ref so he will not declare the parameters again
+            // he will just change the name and act with the original reference without declare new reference  
+            #endregion
+
+            #region Ex02
+
+            //// When will be a different when passing with the value and passing with the ref
+
+            //int[] Numbers = { 1, 2, 3 };
+
+            //Console.WriteLine(Numbers[0]);
+            //int result  = GetSum(Numbers);
+            //Console.WriteLine(result);
+            //Console.WriteLine(Numbers[0]);
+
+            //// This Time The Parameters Will refer a new object so the first array will not be affected
+            //// passing with value with the new object();
+
+            // Passing With the ref with the new object
+            int[] Numbers = { 1, 2, 3 };
+
+            Console.WriteLine(Numbers[0]);
+            int result = GetSum(ref Numbers);
+            Console.WriteLine(result);
+            Console.WriteLine(Numbers[0]);
+
+            // This time we make the originla array allocate a new object too not only the parameter
+            // because it passing parameter by reference 
+            // Stack frame off the get sum will not allocate any data for the parameters 
+            // will depend on the previous array or the original array;
+
+            #endregion
+
+            #endregion
+
+
 
             #endregion
 
         }
+
+        public static int GetSum(ref int[] Arr)
+        {
+            int Total = 0;
+                Arr = new int[] {5,2};
+            for (int i = 0; i < Arr.Length; i++)
+                Total += Arr[i];
+
+            return Total;
+        }
+
+        // First we start with the signature of the function
+        // Static because we will call it through the class not from object from the class
+        //public static void PrintShape(int Count = 5 ,string Shape = ":)")
+        //{
+        //    for(int i  = 0 ; i < Count; i++ )
+        //        Console.WriteLine(Shape);
+        //}
+        // static is only called by class name not with the object from the class
+        //public static void Swap(int x, int y)
+        //{
+        //    int Temp = x;
+        //    x = y;
+        //    y = Temp ;
+        //}
+        //public static void Swap(ref int x,ref int y)
+        //{
+        //    int Temp = x;
+        //    x = y;
+        //    y = Temp;
+        //}
     }
 }
