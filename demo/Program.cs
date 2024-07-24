@@ -1,4 +1,5 @@
 ﻿using System.Globalization;
+using System.Text;
 using System.Xml.Linq;
 
 namespace demo
@@ -388,6 +389,19 @@ namespace demo
             #endregion
 
             #region Params
+            // params is like the rest params in the javascript
+
+            // The Init Way
+            //int[] Numbers = { 1, 2,4,5,6,8 };
+            //Console.WriteLine(GetSum(Numbers));
+
+            // The Second Way
+            //int[] Numbers = { 1, 2, 4, 5, 6, 8 };
+            //Console.WriteLine(GetSum(Numbers));
+
+            // Must be the last on in the paramas
+
+
 
             #endregion
 
@@ -396,6 +410,8 @@ namespace demo
         }
 
         #region Functions
+
+
 
         //public static void SumMul(int x,int y ,out int Sum,out int Mul)
         //{
@@ -431,8 +447,8 @@ namespace demo
         //    int Temp = x;
         //    x = y;
         //    y = Temp ;
-        //}
         //public static void Swap(ref int x,ref int y)
+        //}
         //{
         //    int Temp = x;
         //    x = y;
